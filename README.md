@@ -1,4 +1,4 @@
-# Ejercicios Ping Pong
+# Ejercicio Ping Pong
 
 
 **This proyect contains a ping pong game**
