@@ -41,16 +41,20 @@
         this.board = board;
         this.board.bars.push(this);
         this.kind = 'rectangle';
+        this.speed = 10;
     }
 
-    /* self.Bar.prototype = {
-        down: function(){
-
+    self.Bar.prototype = {
+        down: function () {
+            this.y += this.speed;
         },
-        up: function(){
-
+        up: function () {
+            this.y -= this.speed;
+        },
+        toString: function(){
+            return "x: "+ this.x + "y: "+ this.y;
         }
-    } */
+    }
 }());
 
 /**
@@ -93,15 +97,22 @@ var bar = new Bar(30, 150, 200, 30, board);
 var bar = new Bar(830, 150, 200, 30, board);
 let canvas = document.getElementById('canvas');
 let board_view = new BoardView(canvas, board);
+
+/**
+ * read when up or down key is pressed
+ */
 document.addEventListener("keydown", function (ev) {
     if (ev.keyCode == 38) {
         bar.up();
+        console.log(ev.keyCode);
     }
     else if (ev.keyCode == 40) {
         bar.down();
+        console.log(ev.keyCode);
     }
 
-})
+});
+
 
 self.addEventListener("load", main);
 function main() {
